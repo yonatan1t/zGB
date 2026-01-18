@@ -1,0 +1,22 @@
+manifest:
+  self:
+    west-commands: scripts/west-commands.yml
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+    - name: yonatan1t
+      url-base: https://github.com/yonatan1t
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: main
+      import:
+        name-allowlist:
+          - cmsis_6    # required by the ARM port for Cortex-M
+          - hal_nordic # required by the custom_plank board (Nordic based)
+    - name: Peanut-GB
+      remote: yonatan1t
+      revision: master
